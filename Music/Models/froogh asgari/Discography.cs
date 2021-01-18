@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Music.Models.froogh_asgari
 {
-    public class Mode1
+    public class Discography
     {
-        public List<TrackDetail> track { get; set; }
+        public List<AlbumDisco> album { get; set; }
     }
 }
