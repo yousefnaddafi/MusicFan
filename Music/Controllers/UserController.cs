@@ -13,8 +13,6 @@ namespace Music.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-      
-
             readonly UserRepo repository;
             public UserController()
             {
