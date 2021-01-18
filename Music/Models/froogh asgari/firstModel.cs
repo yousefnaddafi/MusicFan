@@ -7,6 +7,7 @@ namespace Music.Models.froogh_asgari
 {
     public class firstModel
     {
-        public string Name { get; set; }
+        public string name { get; set; }
+        public string emailadress { get; set; }
     }
 }
