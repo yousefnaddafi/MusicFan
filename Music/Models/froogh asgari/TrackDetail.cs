@@ -16,5 +16,4 @@ namespace Music.Models.froogh_asgari
         public string strTrack { get; set; }
         public string strAlbum { get; set; }
     }
-    
 }
