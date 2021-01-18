@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace Music.Models.froogh_asgari
 {
-    public class firstModel
+    public class User
+
     {
         public string name { get; set; }
-        public string emailadress { get; set; }
+        public string emailaddress { get; set; }
     }
 }
