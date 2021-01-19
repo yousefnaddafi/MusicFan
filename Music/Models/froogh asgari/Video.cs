@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Music.Models.froogh_asgari
 {
-    public class Videocs
+    public class Video
     {
         public int idArtist { get; set; }
         public int idAlbum { get; set; }

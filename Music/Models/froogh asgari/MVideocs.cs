@@ -7,6 +7,6 @@ namespace Music.Models.froogh_asgari
 {
     public class MVideocs
     {
-        public List<Videocs> mvids { get; set; }
+        public List<Video> mvids { get; set; }
     }
 }
