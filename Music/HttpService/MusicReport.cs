@@ -12,7 +12,7 @@ namespace Music.HttpService
     {
         private readonly HttpClient client;
         private const string BaseAdress = "https://www.theaudiodb.com";
-
+        public List<User> Users = new List<User>();
         public MusicReport(HttpClient client)
         {
             this.client = client;
@@ -60,7 +60,7 @@ namespace Music.HttpService
         }
 
 
-        public TrackDetail GetTrackInf(string TrackId)
+        public Tracks GetTrackInf(string TrackId)
         {
             var httpResponse = client.GetAsync($"api/v1/json/1/track.php?h={TrackId}").Result;
             httpResponse.EnsureSuccessStatusCode();
@@ -73,7 +73,17 @@ namespace Music.HttpService
             HttpContent content = httpResponse.Content;
             string stringContent = content.ReadAsStringAsync().Result;
 
-            var result = JsonSerializer.Deserialize<TrackDetail>(stringContent);
+            var result = JsonSerializer.Deserialize<Tracks>(stringContent);
+
+
+
+            return result;
+
+        }
+
+        public Tracks GetFav(int Id)
+        {
+            foreach(var item in users)
 
 
 
