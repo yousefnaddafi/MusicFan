@@ -19,7 +19,7 @@ namespace Music.HttpService
             this.client.BaseAddress = new Uri(BaseAdress);
             this.client.DefaultRequestHeaders.Add("Accept", "application/json");
         }
-        public Mode1 SearchTrack(string ArtistName,string TrackName)
+        public Tracks SearchTrack(string ArtistName,string TrackName)
         {
             var httpResponse = client.GetAsync($"api/v1/json/1/searchtrack.php?s={ArtistName}&t={TrackName}").Result;
             httpResponse.EnsureSuccessStatusCode();
@@ -32,9 +32,9 @@ namespace Music.HttpService
             HttpContent content = httpResponse.Content;
             string stringContent = content.ReadAsStringAsync().Result;
 
-            var result = JsonSerializer.Deserialize<Mode1>(stringContent);
+            var result = JsonSerializer.Deserialize<Tracks>(stringContent);
             // mage nabayad artistname o track name begire??
-            return new Mode1() { track = result.track.ToList() };
+            return new Tracks() { track = result.track.ToList() };
 
         }
 
