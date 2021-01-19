@@ -21,6 +21,24 @@ namespace Music.HttpService
             this.client.BaseAddress = new Uri(BaseAdress);
             this.client.DefaultRequestHeaders.Add("Accept", "application/json");
         }
+        public Tracks SearchTrack(string ArtistName,string TrackName)
+        {
+            var httpResponse = client.GetAsync($"api/v1/json/1/searchtrack.php?s={ArtistName}&t={TrackName}").Result;
+            httpResponse.EnsureSuccessStatusCode();
+            if (!httpResponse.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+
+            HttpContent content = httpResponse.Content;
+            string stringContent = content.ReadAsStringAsync().Result;
+
+            var result = JsonSerializer.Deserialize<Tracks>(stringContent);
+            // mage nabayad artistname o track name begire??
+            return new Tracks() { track = result.track.ToList() };
+
+        }
 
         public MVideo GetMusicVideo(string ArtistId)
         {
