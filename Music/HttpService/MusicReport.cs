@@ -35,13 +35,13 @@ namespace Music.HttpService
             string stringContent = content.ReadAsStringAsync().Result;
 
             var result = JsonSerializer.Deserialize<Tracks>(stringContent);
-            // mage nabayad artistname o track name begire??
+       
             return new Tracks() { track = result.track.ToList() };
 
         }
         public Mode2 GetAlbumInfo(string Artistname)
         {
-            var httpResponse = client.GetAsync($"api/v1/json/1/searchalbum.php?s=coldplay={Artistname}").Result;
+            var httpResponse = client.GetAsync($"api/v1/json/1/searchalbum.php?s={Artistname}").Result;
             httpResponse.EnsureSuccessStatusCode();
             if (!httpResponse.IsSuccessStatusCode)
             {
@@ -54,7 +54,7 @@ namespace Music.HttpService
 
             var result = JsonSerializer.Deserialize<Mode2>(stringContent);
 
-            return new Mode2() { album = result.album.ToList() };
+            return result;
 
         }
 
