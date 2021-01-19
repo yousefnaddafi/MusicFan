@@ -37,6 +37,25 @@ namespace Music.HttpService
             return new Tracks() { track = result.track.ToList() };
 
         }
+        public Mode2 GetAlbumInfo(string Artistname)
+        {
+            var httpResponse = client.GetAsync($"api/v1/json/1/search.php?s={Artistname}").Result;
+            httpResponse.EnsureSuccessStatusCode();
+            if (!httpResponse.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+
+            HttpContent content = httpResponse.Content;
+            string stringContent = content.ReadAsStringAsync().Result;
+
+            var result = JsonSerializer.Deserialize<Mode2>(stringContent);
+            // mage nabayad artistname o track name begire??
+            return new Mode2() { album = result.album.ToList() };
+
+        }
+
 
         public MVideo GetMusicVideo(string ArtistId)
         {
