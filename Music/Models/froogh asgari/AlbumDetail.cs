@@ -14,8 +14,8 @@ namespace Music.Models.froogh_asgari
         public string strAlbumStripped { get; set; }
         public string strArtist { get; set; }
         public string strArtistStripped { get; set; }
-        public int intYearReleased { get; set; }
-        public int intSale { get; set; }
+        public string intYearReleased { get; set; }
+        public string intSale { get; set; }
 
     }
 }
