@@ -35,7 +35,7 @@ namespace Music.HttpService
             string stringContent = content.ReadAsStringAsync().Result;
 
             var result = JsonSerializer.Deserialize<Tracks>(stringContent);
-            // mage nabayad artistname o track name begire??
+       
             return new Tracks() { track = result.track.ToList() };
 
         }
@@ -53,7 +53,7 @@ namespace Music.HttpService
             string stringContent = content.ReadAsStringAsync().Result;
 
             var result = JsonSerializer.Deserialize<Mode2>(stringContent);
-            // mage nabayad artistname o track name begire??
+
             return result;
 
         }
