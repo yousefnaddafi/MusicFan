@@ -8,7 +8,7 @@ namespace Music.Models.froogh_asgari
     public class User
 
     {
-        public string name { get; set; }
-        public string emailaddress { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
     }
 }
