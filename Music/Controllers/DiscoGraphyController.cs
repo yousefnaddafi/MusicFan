@@ -20,6 +20,12 @@ namespace Music.Controllers
             this.musicReport = musicReport;
         }
         
-        
+
+        [HttpGet]
+        public Discography GetDisc([FromQuery] string ArtistName)
+        {
+            return musicReport.GetAlbum(ArtistName);
+        }
+
     }
 }
