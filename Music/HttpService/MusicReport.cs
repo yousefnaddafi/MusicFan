@@ -1,4 +1,6 @@
-﻿using Music.Models.froogh_asgari;
+﻿using Music.Controllers;
+using Music.Models.froogh_asgari;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,7 @@ namespace Music.HttpService
     {
         private readonly HttpClient client;
         private const string BaseAdress = "https://www.theaudiodb.com";
-        public List<User> Users = new List<User>();
+        
         public MusicReport(HttpClient client)
         {
             this.client = client;
@@ -63,14 +65,34 @@ namespace Music.HttpService
 
         }
 
-        public Tracks GetFav(int Id)
+        public List<Tracks> GetFav(int Id)
         {
-            foreach(var item in users)
+
+            var FavTracks = new List<Tracks>();
+            foreach(var item in UserController.repository.users.FirstOrDefault(x => x.Id == Id).FavoritesTI)
+            {
+                var httpResponse = client.GetAsync($"api/v1/json/1/track.php?h={item}").Result;
+                httpResponse.EnsureSuccessStatusCode();
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    return null;
+                }
 
 
+                HttpContent content = httpResponse.Content;
+                string stringContent = content.ReadAsStringAsync().Result;
 
-            return result;
+                var result = JsonSerializer.Deserialize<Tracks>(stringContent);
+                FavTracks.Add(result);
 
+            }
+            
+
+
+            return FavTracks;
+
+
+            
         }
     }
 }

@@ -14,4 +14,5 @@ namespace Music.Models.froogh_asgari
         public List<string> FavoritesTI{ get; set; }
     }
     
+    
 }

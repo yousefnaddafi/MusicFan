@@ -8,7 +8,7 @@ namespace Music.Repository
 {
     public class UserRepo : User
     {
-        static List<User> users = new List<User>();
+        public  List<User> users = new List<User>();
 
         public static int IDCounter = 1;
         public void Insert(User user)
