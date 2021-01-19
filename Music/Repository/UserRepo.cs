@@ -10,13 +10,15 @@ namespace Music.Repository
     {
         static List<User> users = new List<User>();
 
-
+        public static int IDCounter = 1;
         public void Insert(User user)
         {
 
             if (!users.Any(x => x.EmailAddress == user.EmailAddress))
             {
+                user.Id = IDCounter;
                 users.Add(user);
+                IDCounter++;
             }
             else
             {
