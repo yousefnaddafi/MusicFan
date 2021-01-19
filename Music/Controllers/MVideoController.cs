@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Music.HttpService;
 using Music.Models.froogh_asgari;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,9 @@ namespace Music.Controllers
             this.musicReport = musicReport;
         }
         [HttpGet]
-        public MVideocs GetAlbum([FromQuery] int i)
+        public MVideo GetAlbum([FromQuery] string ArtistId)
         {
-            return musicReport.GetMusic(i);
+            return musicReport.GetMusicVideo(ArtistId);
         }
     }
 }

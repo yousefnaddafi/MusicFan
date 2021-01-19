@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Music.HttpService;
 using Music.Models.froogh_asgari;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,6 @@ namespace Music.Controllers
             {
                 this.musicReport = musicReport;
             }
-            [HttpGet]
-            public TrackDetail GetTrack([FromQuery] string s)
-            {
-                return musicReport.GetByS(s);
-            }
+            
         }
 }
