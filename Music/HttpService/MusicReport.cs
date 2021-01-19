@@ -96,11 +96,28 @@ namespace Music.HttpService
 
             var result = JsonSerializer.Deserialize<Tracks>(stringContent);
 
-
-
-            return result;
+               return result;
 
         }
+        public Discography GetAlbum(string Artistname)
+        {
+            var httpResponse = client.GetAsync($"api/v1/json/1/discography.php?s=coldplay={Artistname}").Result;
+            httpResponse.EnsureSuccessStatusCode();
+            if (!httpResponse.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+
+            HttpContent content = httpResponse.Content;
+            string stringContent = content.ReadAsStringAsync().Result;
+
+            var result = JsonSerializer.Deserialize<Discography>(stringContent);
+
+            return new Discography() { album = result.album.ToList() };
+
+        }
+
 
         public List<Tracks> GetFav(int Id)
         {
@@ -123,9 +140,7 @@ namespace Music.HttpService
                 FavTracks.Add(result);
 
             }
-            
-
-
+ 
             return FavTracks;
 
 
