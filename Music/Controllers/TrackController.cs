@@ -19,6 +19,11 @@ namespace Music.Controllers
             {
                 this.musicReport = musicReport;
             }
-            
+
+        [HttpGet]
+        public Tracks GetTrackInfo([FromQuery] Person input)
+        {
+            return musicReport.SearchTrack(input);
         }
+    }
 }

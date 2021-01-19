@@ -19,9 +19,9 @@ namespace Music.HttpService
             this.client.BaseAddress = new Uri(BaseAdress);
             this.client.DefaultRequestHeaders.Add("Accept", "application/json");
         }
-        public Tracks SearchTrack(string ArtistName,string TrackName)
+        public Tracks SearchTrack(Person person)
         {
-            var httpResponse = client.GetAsync($"api/v1/json/1/searchtrack.php?s={ArtistName}&t={TrackName}").Result;
+            var httpResponse = client.GetAsync($"api/v1/json/1/searchtrack.php?s={person.ArtistName}&t={person.SingleName}").Result;
             httpResponse.EnsureSuccessStatusCode();
             if (!httpResponse.IsSuccessStatusCode)
             {
