@@ -19,6 +19,10 @@ namespace Music.Controllers
         {
             this.musicReport = musicReport;
         }
-        
+        [HttpGet]
+        public Tracks GetFavorites([FromQuery] int Id)
+        {
+            return musicReport.GetFav(Id);
+        }
     }
 }

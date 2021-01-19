@@ -12,7 +12,7 @@ namespace Music.HttpService
     {
         private readonly HttpClient client;
         private const string BaseAdress = "https://www.theaudiodb.com";
-
+        public List<User> Users = new List<User>();
         public MusicReport(HttpClient client)
         {
             this.client = client;
@@ -56,6 +56,16 @@ namespace Music.HttpService
             string stringContent = content.ReadAsStringAsync().Result;
 
             var result = JsonSerializer.Deserialize<Tracks>(stringContent);
+
+
+
+            return result;
+
+        }
+
+        public Tracks GetFav(int Id)
+        {
+            foreach(var item in users)
 
 
 
