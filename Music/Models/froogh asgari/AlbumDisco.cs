@@ -8,6 +8,6 @@ namespace Music.Models.froogh_asgari
     public class AlbumDisco
     {
         public string strAlbum { get; set; }
-        public int intYearReleased { get; set; }
+        public string intYearReleased { get; set; }
     }
 }
