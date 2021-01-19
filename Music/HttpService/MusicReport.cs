@@ -41,7 +41,7 @@ namespace Music.HttpService
         }
         public Mode2 GetAlbumInfo(string Artistname)
         {
-            var httpResponse = client.GetAsync($"api/v1/json/1/search.php?s={Artistname}").Result;
+            var httpResponse = client.GetAsync($"api/v1/json/1/searchalbum.php?s=coldplay={Artistname}").Result;
             httpResponse.EnsureSuccessStatusCode();
             if (!httpResponse.IsSuccessStatusCode)
             {
@@ -53,7 +53,7 @@ namespace Music.HttpService
             string stringContent = content.ReadAsStringAsync().Result;
 
             var result = JsonSerializer.Deserialize<Mode2>(stringContent);
-            // mage nabayad artistname o track name begire??
+
             return new Mode2() { album = result.album.ToList() };
 
         }
@@ -96,9 +96,7 @@ namespace Music.HttpService
 
             var result = JsonSerializer.Deserialize<Tracks>(stringContent);
 
-
-
-            return result;
+               return result;
 
         }
 
@@ -123,9 +121,7 @@ namespace Music.HttpService
                 FavTracks.Add(result);
 
             }
-            
-
-
+ 
             return FavTracks;
 
 
