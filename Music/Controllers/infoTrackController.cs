@@ -20,7 +20,7 @@ namespace Music.Controllers
             this.musicReport = musicReport;
         }
         [HttpGet]
-        public TrackDetail GetTrackInfo([FromQuery] string TrackId)
+        public Tracks GetTrackInfo([FromQuery] string TrackId)
         {
             return musicReport.GetTrackInf(TrackId);
         }

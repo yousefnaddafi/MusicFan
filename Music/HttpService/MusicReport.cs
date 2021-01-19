@@ -42,7 +42,7 @@ namespace Music.HttpService
         }
 
 
-        public TrackDetail GetTrackInf(string TrackId)
+        public Tracks GetTrackInf(string TrackId)
         {
             var httpResponse = client.GetAsync($"api/v1/json/1/track.php?h={TrackId}").Result;
             httpResponse.EnsureSuccessStatusCode();
@@ -55,7 +55,7 @@ namespace Music.HttpService
             HttpContent content = httpResponse.Content;
             string stringContent = content.ReadAsStringAsync().Result;
 
-            var result = JsonSerializer.Deserialize<TrackDetail>(stringContent);
+            var result = JsonSerializer.Deserialize<Tracks>(stringContent);
 
 
 
