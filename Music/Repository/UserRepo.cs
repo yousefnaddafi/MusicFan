@@ -14,7 +14,7 @@ namespace Music.Repository
         public void Insert(User user)
         {
 
-            if (!users.Any(x => x.emailaddress == user.emailaddress))
+            if (!users.Any(x => x.EmailAddress == user.EmailAddress))
             {
                 users.Add(user);
             }
