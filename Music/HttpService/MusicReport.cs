@@ -101,7 +101,7 @@ namespace Music.HttpService
         }
         public Discography GetAlbum(string Artistname)
         {
-            var httpResponse = client.GetAsync($"api/v1/json/1/discography.php?s=coldplay={Artistname}").Result;
+            var httpResponse = client.GetAsync($"api/v1/json/1/discography.php?s={Artistname}").Result;
             httpResponse.EnsureSuccessStatusCode();
             if (!httpResponse.IsSuccessStatusCode)
             {
