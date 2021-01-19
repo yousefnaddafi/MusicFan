@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Music.Models.froogh_asgari
 {
-    public class MVideocs
+    public class MVideo
     {
         public List<Video> mvids { get; set; }
     }
