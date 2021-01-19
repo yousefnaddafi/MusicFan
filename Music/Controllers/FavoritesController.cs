@@ -19,10 +19,6 @@ namespace Music.Controllers
         {
             this.musicReport = musicReport;
         }
-        [HttpGet]
-        public TrackDetail GetAlbum([FromQuery] string ArtistId)
-        {
-            return musicReport.GetMusicVideo(ArtistId);
-        }
+        
     }
 }
