@@ -11,18 +11,18 @@ namespace Music.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class infoTrackController : ControllerBase
+    public class FavoritesController : ControllerBase
     {
         private readonly MusicReport musicReport;
 
-        public infoTrackController(MusicReport musicReport)
+        public FavoritesController(MusicReport musicReport)
         {
             this.musicReport = musicReport;
         }
         [HttpGet]
-        public TrackDetail GetTrackInfo([FromQuery] string TrackId)
+        public TrackDetail GetAlbum([FromQuery] string ArtistId)
         {
-            return musicReport.GetTrackInf(TrackId);
+            return musicReport.GetMusicVideo(ArtistId);
         }
     }
 }

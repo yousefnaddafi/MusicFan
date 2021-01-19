@@ -40,5 +40,27 @@ namespace Music.HttpService
             return new MVideo() { mvids = result.mvids.ToList() };
 
         }
+
+
+        public TrackDetail GetTrackInf(string TrackId)
+        {
+            var httpResponse = client.GetAsync($"api/v1/json/1/track.php?h={TrackId}").Result;
+            httpResponse.EnsureSuccessStatusCode();
+            if (!httpResponse.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+
+            HttpContent content = httpResponse.Content;
+            string stringContent = content.ReadAsStringAsync().Result;
+
+            var result = JsonSerializer.Deserialize<TrackDetail>(stringContent);
+
+
+
+            return result;
+
+        }
     }
 }

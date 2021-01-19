@@ -11,5 +11,6 @@ namespace Music.Models.froogh_asgari
         public string Name { get; set; }
         public string EmailAddress { get; set; }
         public int Id { get; set; }
+        public List<string> FavoritesTI{ get; set; }
     }
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Music.Models.froogh_asgari
+namespace Music.Models.Yousef_Naddafi
 {
-    public class Mode1
+    public class Favorite
     {
-        public List<TrackDetail> track { get; set; }
+
     }
 }
